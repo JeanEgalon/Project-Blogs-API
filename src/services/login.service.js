@@ -9,10 +9,6 @@ const validateLogin = async (email, password) => {
 
   const { password: _, ...userWithoutPassword } = findUser.dataValues;
 
-  /* 
-  Precisamos usar o `.dataValues` pois o sequelize sempre encapsula os atributos (colunas)
-  dentro desse atributo do objeto retornado pelos métodos.
-  */
   const token = jwtUtil.createToken(userWithoutPassword);
 
   return token;

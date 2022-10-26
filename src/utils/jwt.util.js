@@ -14,9 +14,8 @@ const validateToken = (token) => {
   try {
     const { data } = jwt.verify(token, process.env.JWT_SECRET);
     return data;
-  } catch (_e) {
-    const e = new Error('Token inválido');
-    throw e;
+  } catch (e) {
+    return e;
   }
 };
 
