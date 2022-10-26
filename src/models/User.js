@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       type: DataTypes.INTEGER,
     },
-    displayName: {
+    display_name: {
       allowNull: false,
       type: DataTypes.STRING,
       field: 'display_name',
