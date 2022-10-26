@@ -1,21 +1,12 @@
 const jwtUtil = require('../utils/jwt.util');
 
-const checkToken = (token) => {
-  if (!token) {
-    return { type: 401, message: 'Token not found' };
-  }
-
-  const user = jwtUtil.validateToken(token);
-
-  return user;
-};
-
 const validateToken = (req, res, next) => {
   const { authorization } = req.headers;
-  const user = checkToken(authorization);
-  console.log(user);
 
-  // if (user.type) return res.status(user.type).json(user.message);
+  if (!authorization) return res.status(401).json({ message: 'Token not found' });
+
+  const user = jwtUtil.validateToken(authorization);
+  console.log(user);
 
   req.user = user;
 
@@ -23,6 +14,5 @@ const validateToken = (req, res, next) => {
 };
 
 module.exports = {
-  checkToken,
   validateToken,
 };
