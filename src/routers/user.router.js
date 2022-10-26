@@ -8,7 +8,7 @@ const validadeEmail = require('../middlewares/validateEmail');
 const validateName = require('../middlewares/validateName');
 const validatePassword = require('../middlewares/validatePassword');
 
-router.post('/user',
+router.post('/',
   validadeEmail,
   validateName,
   validatePassword,
@@ -16,6 +16,6 @@ router.post('/user',
 
 router.use(authMiddleware.validateToken);
 
-router.get('/user', UserController.getAll);
+router.get('/', UserController.getAll);
 
 module.exports = router;

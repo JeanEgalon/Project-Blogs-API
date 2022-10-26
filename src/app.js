@@ -8,7 +8,8 @@ app.use(express.json());
 
 // ...
 
-app.use(routers);
+app.use('/login', routers.loginRouter);
+app.use('/user', routers.userRouter);
 
 // É importante exportar a constante `app`,
 // para que possa ser utilizada pelo arquivo `src/server.js`
