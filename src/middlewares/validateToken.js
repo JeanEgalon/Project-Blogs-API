@@ -6,7 +6,8 @@ const validateToken = (req, res, next) => {
   if (!authorization) return res.status(401).json({ message: 'Token not found' });
 
   const user = jwtUtil.validateToken(authorization);
-  console.log(user);
+  
+  if (user.message) return res.status(401).json({ message: 'Expired or invalid token' });
 
   req.user = user;
 
