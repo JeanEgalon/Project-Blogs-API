@@ -11,4 +11,8 @@ router.post('/categories',
   validateName,
   CategoryController.createCategory);
 
+router.get('/categories',
+  authMiddleware.validateToken,
+  CategoryController.getAll);
+
 module.exports = router;
