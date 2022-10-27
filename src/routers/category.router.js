@@ -6,9 +6,8 @@ const CategoryController = require('../controllers/category.controller');
 const authMiddleware = require('../middlewares/validateToken');
 const validateName = require('../middlewares/validateName');
 
-router.use(authMiddleware.validateToken);
-
 router.post('/categories',
+  authMiddleware.validateToken,
   validateName,
   CategoryController.createCategory);
 
