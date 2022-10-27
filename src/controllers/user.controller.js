@@ -14,6 +14,7 @@ const getAll = async (_req, res) => {
   return res.status(200).json(allUsers);
 };
 
+// teste
 module.exports = {
   createUser,
   getAll,
