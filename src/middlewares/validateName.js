@@ -1,10 +1,8 @@
 const validateName = (req, res, next) => {
-  const { displayName } = req.body;
+  const { name } = req.body;
 
-  if (displayName.length < 8) {
-    return res.status(400).json({
-      message: '"displayName" length must be at least 8 characters long',
-    });
+  if (!name) {
+    return res.status(400).json({ message: '"name" is required' });
   }
 
   next();

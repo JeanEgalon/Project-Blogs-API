@@ -5,12 +5,12 @@ const router = express.Router();
 const UserController = require('../controllers/user.controller');
 const authMiddleware = require('../middlewares/validateToken');
 const validadeEmail = require('../middlewares/validateEmail');
-const validateName = require('../middlewares/validateName');
+const validateDisplayName = require('../middlewares/validateDisplayName');
 const validatePassword = require('../middlewares/validatePassword');
 
 router.post('/user',
   validadeEmail,
-  validateName,
+  validateDisplayName,
   validatePassword,
   UserController.createUser);
 
