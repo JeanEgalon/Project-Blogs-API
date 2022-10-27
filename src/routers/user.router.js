@@ -17,5 +17,6 @@ router.post('/user',
 router.use(authMiddleware.validateToken);
 
 router.get('/user', UserController.getAll);
+router.get('/user/:id', UserController.findById);
 
 module.exports = router;
