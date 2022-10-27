@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 const UserController = require('../controllers/user.controller');
-const authMiddleware = require('../middlewares/validateToken');
+const validateToken = require('../middlewares/validateToken');
 const validadeEmail = require('../middlewares/validateEmail');
 const validateDisplayName = require('../middlewares/validateDisplayName');
 const validatePassword = require('../middlewares/validatePassword');
@@ -14,9 +14,7 @@ router.post('/user',
   validatePassword,
   UserController.createUser);
 
-router.use(authMiddleware.validateToken);
-
-router.get('/user', UserController.getAll);
-router.get('/user/:id', UserController.findById);
+router.get('/user', validateToken, UserController.getAll);
+router.get('/user/:id', validateToken, UserController.findById);
 
 module.exports = router;

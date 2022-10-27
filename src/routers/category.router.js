@@ -3,16 +3,16 @@ const express = require('express');
 const router = express.Router();
 
 const CategoryController = require('../controllers/category.controller');
-const authMiddleware = require('../middlewares/validateToken');
+const validateToken = require('../middlewares/validateToken');
 const validateName = require('../middlewares/validateName');
 
 router.post('/categories',
-  authMiddleware.validateToken,
+  validateToken,
   validateName,
   CategoryController.createCategory);
 
 router.get('/categories',
-  authMiddleware.validateToken,
+  validateToken,
   CategoryController.getAll);
 
 module.exports = router;
