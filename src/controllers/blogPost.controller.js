@@ -3,7 +3,7 @@ const BlogPostService = require('../services/blogPost.service');
 const registerNewCategory = async (categoryIds, postId) => {
   const allCategoriesIds = categoryIds;
 
-  allCategoriesIds.forEach(async (categoryId) => {
+  allCategoriesIds.map(async (categoryId) => {
     await BlogPostService.createCategory({ categoryId, postId });
   });
 };
