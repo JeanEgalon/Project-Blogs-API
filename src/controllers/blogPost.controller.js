@@ -1,18 +1,21 @@
+const jwt = require('jsonwebtoken');
 const BlogPostService = require('../services/blogPost.service');
+require('dotenv').config();
 
 const registerNewCategory = async (categoryIds, postId) => {
   const allCategoriesIds = categoryIds;
 
-  allCategoriesIds.map(async (categoryId) => {
+  await Promise.all(allCategoriesIds.map(async (categoryId) => {
     await BlogPostService.createCategory({ categoryId, postId });
-  });
+  }));
 };
 
 const blogPostInsert = async (req, res) => {
   const { title, content, categoryIds } = req.body;
   const { authorization } = req.headers;
+  const { id } = jwt.verify(authorization, process.env.JWT_SECRET).data;
 
-  const result = await BlogPostService.insert(title, content, categoryIds, authorization);
+  const result = await BlogPostService.insert(title, content, id);
 
   await registerNewCategory(categoryIds, result.dataValues.id);
 

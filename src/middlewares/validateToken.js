@@ -9,8 +9,6 @@ const validateToken = (req, res, next) => {
   
   if (user.message) return res.status(401).json({ message: 'Expired or invalid token' });
 
-  req.user = user;
-
   next();
 };
 

@@ -1,17 +1,14 @@
-const jwt = require('jsonwebtoken');
-require('dotenv').config();
 const { User, Category, BlogPost, PostCategory } = require('../models');
 
 const createCategory = async (data) => {
   await PostCategory.create(data);
 };
 
-const insert = async (title, content, categoryIds, authorization) => {
-  const getUserId = jwt.verify(authorization, process.env.JWT_SECRET);
+const insert = async (title, content, id) => {
   const createBlogPost = await BlogPost.create({
     title,
     content,
-    userId: getUserId.data.id,
+    userId: id,
   });
 
   return createBlogPost;
