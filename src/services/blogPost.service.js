@@ -46,10 +46,42 @@ const findById = async (id) => {
   return result;
 };
 
+const findUserId = async (id) => {
+  const checkId = await BlogPost.findByPk(id);
+
+  if (!checkId) return new Error('id not found');
+
+  return checkId;
+};
+
+const updatePost = async (id, title, content) => {
+  await BlogPost.update(
+    { title, content },
+    { where: { id } },
+  );
+  // const result = await BlogPost.findByPk({
+  //   where: { id },
+  //   attributes: { exclude: ['user_id'] },
+  //   include: [
+  //     { model: User, as: 'user', attributes: { exclude: ['password'] } },
+  //     { model: Category, as: 'categories', through: { attributes: [] } },
+  //   ],
+  // });
+  const result = await BlogPost.findByPk(id, {
+    include: [
+      { model: User, as: 'user', attributes: { exclude: ['password'] } },
+      { model: Category, as: 'categories', through: { attributes: [] } },
+    ],
+  });
+  return result;
+};
+
 module.exports = {
   insert,
   findAll,
   createCategory,
   getAll,
   findById,
+  findUserId,
+  updatePost,
 };

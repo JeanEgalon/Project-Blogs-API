@@ -2,7 +2,6 @@ const { Category } = require('../models');
 
 const createCategory = async (name) => {
   const newUserId = await Category.create({ name });
-  console.log(newUserId);
   const newUser = await Category.findOne({ where: { id: newUserId.dataValues.id } });
 
   return newUser;

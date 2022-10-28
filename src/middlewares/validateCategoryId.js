@@ -11,15 +11,7 @@ const validateCategoryId = async (req, res, next) => {
     return res.status(400).json({
       message: 'one or more "categoryIds" not found',
     }); 
-  } 
-
-  // categoryIds.forEach((id) => {
-  //   if (id > lastId) {
-  //     return res.status(400).json({
-  //       message: 'one or more "categoryIds" not found',
-  //     }); 
-  //   }
-  // });
+  }
 
   if (!Array.isArray(categoryIds)) {
     return res.status(400).json({
