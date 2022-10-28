@@ -19,7 +19,13 @@ const blogPostInsert = async (req, res) => {
   return res.status(201).json(result);
 };
 
+const getAll = async (_req, res) => {
+  const result = await BlogPostService.getAll();
+  return res.status(200).json(result);
+};
+
 module.exports = {
   blogPostInsert,
   registerNewCategory,
+  getAll,
 };
