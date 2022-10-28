@@ -1,7 +1,7 @@
 const { User, Category, BlogPost, PostCategory } = require('../models');
 
-const createCategory = async (data) => {
-  await PostCategory.create(data);
+const createCategory = async (postId, categoryId) => {
+  await PostCategory.create({ postId, categoryId });
 };
 
 const insert = async (title, content, id) => {

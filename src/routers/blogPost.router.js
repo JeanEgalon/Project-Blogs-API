@@ -9,8 +9,8 @@ const validatePostData = require('../middlewares/validatePostData');
 
 router.post('/post',
   validateToken,
-  validateCategoryId,
   validatePostData,
+  validateCategoryId,
   BlogPostController.blogPostInsert);
 
 router.get('/post', validateToken, BlogPostController.getAll);

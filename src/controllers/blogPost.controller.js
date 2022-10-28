@@ -3,10 +3,8 @@ const BlogPostService = require('../services/blogPost.service');
 require('dotenv').config();
 
 const registerNewCategory = async (categoryIds, postId) => {
-  const allCategoriesIds = categoryIds;
-
-  await Promise.all(allCategoriesIds.map(async (categoryId) => {
-    await BlogPostService.createCategory({ categoryId, postId });
+  await Promise.all(categoryIds.map(async (categoryId) => {
+    await BlogPostService.createCategory(postId, categoryId);
   }));
 };
 
