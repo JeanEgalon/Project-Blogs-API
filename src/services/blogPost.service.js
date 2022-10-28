@@ -33,9 +33,26 @@ const getAll = async () => {
   return result;
 };
 
+const findById = async (id) => {
+  const checkId = await BlogPost.findByPk(id);
+
+  if (!checkId) return new Error('id not found');
+
+  const result = await BlogPost.findOne({
+    attributes: { exclude: ['user_id'] },
+    include: [
+    { model: User, as: 'user', attributes: { exclude: ['password', 'user_id'] } },
+      { model: Category, as: 'categories', through: { attributes: [] } },
+  ],
+  });
+
+  return result;
+};
+
 module.exports = {
   insert,
   findAll,
   createCategory,
   getAll,
+  findById,
 };

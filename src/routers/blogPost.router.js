@@ -14,5 +14,6 @@ router.post('/post',
   BlogPostController.blogPostInsert);
 
 router.get('/post', validateToken, BlogPostController.getAll);
+router.get('/post/:id', validateToken, BlogPostController.findById);
 
 module.exports = router;
