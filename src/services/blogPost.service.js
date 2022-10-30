@@ -59,20 +59,22 @@ const updatePost = async (id, title, content) => {
     { title, content },
     { where: { id } },
   );
-  // const result = await BlogPost.findByPk({
-  //   where: { id },
-  //   attributes: { exclude: ['user_id'] },
-  //   include: [
-  //     { model: User, as: 'user', attributes: { exclude: ['password'] } },
-  //     { model: Category, as: 'categories', through: { attributes: [] } },
-  //   ],
-  // });
   const result = await BlogPost.findByPk(id, {
     include: [
       { model: User, as: 'user', attributes: { exclude: ['password'] } },
       { model: Category, as: 'categories', through: { attributes: [] } },
     ],
   });
+  return result;
+};
+
+const deletePost = async (userId) => {
+  const result = await BlogPost.destroy({ where: { userId } });
+  return result;
+};
+
+const findOne = async (id) => {
+  const result = await BlogPost.findOne({ where: { id } });
   return result;
 };
 
@@ -84,4 +86,6 @@ module.exports = {
   findById,
   findUserId,
   updatePost,
+  deletePost,
+  findOne,
 };

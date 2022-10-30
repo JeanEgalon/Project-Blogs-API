@@ -42,10 +42,19 @@ const updatePost = async (req, res) => {
   return res.status(200).json(result);
 };
 
+const deletePost = async (req, res) => {
+  const { id } = req.params;
+
+  await BlogPostService.deletePost(id);
+
+  return res.status(204).end();
+};
+
 module.exports = {
   blogPostInsert,
   registerNewCategory,
   getAll,
   findById,
   updatePost,
+  deletePost,
 };
