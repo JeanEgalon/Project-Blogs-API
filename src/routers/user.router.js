@@ -16,5 +16,6 @@ router.post('/user',
 
 router.get('/user', validateToken, UserController.getAll);
 router.get('/user/:id', validateToken, UserController.findById);
+router.delete('/user/me', validateToken, UserController.deleteUser);
 
 module.exports = router;
