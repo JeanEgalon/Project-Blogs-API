@@ -78,6 +78,20 @@ const findOne = async (id) => {
   return result;
 };
 
+const getByTerm = async (q) => {
+  const findTerm = await BlogPost.findAll({
+    include: [
+      { model: User, as: 'user', attributes: { exclude: ['password'] } },
+      { model: Category, as: 'categories', through: { attributes: [] } },
+    ],
+  });
+
+  const getTitle = findTerm.filter((item) => item.title.includes(q));
+  const getContent = findTerm.filter((item) => item.content.includes(q));
+
+  return [...getTitle, ...getContent];
+};
+
 module.exports = {
   insert,
   findAll,
@@ -88,4 +102,5 @@ module.exports = {
   updatePost,
   deletePost,
   findOne,
+  getByTerm,
 };

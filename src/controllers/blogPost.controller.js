@@ -50,6 +50,14 @@ const deletePost = async (req, res) => {
   return res.status(204).end();
 };
 
+const getByTerm = async (req, res) => {
+  const { q } = req.query;
+
+  const getTerm = await BlogPostService.getByTerm(q);
+
+  return res.status(200).json(getTerm);
+};
+
 module.exports = {
   blogPostInsert,
   registerNewCategory,
@@ -57,4 +65,5 @@ module.exports = {
   findById,
   updatePost,
   deletePost,
+  getByTerm,
 };

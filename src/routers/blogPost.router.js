@@ -10,10 +10,12 @@ const validatePostData = require('../middlewares/validatePostData');
 const validateDeletePost = require('../middlewares/validateDeletePost');
 
 router.post('/post',
-  validateToken,
-  validatePostData,
-  validateCategoryId,
-  BlogPostController.blogPostInsert);
+validateToken,
+validatePostData,
+validateCategoryId,
+BlogPostController.blogPostInsert);
+
+router.get('/post/search', validateToken, BlogPostController.getByTerm);
 
 router.get('/post', validateToken, BlogPostController.getAll);
 router.get('/post/:id', validateToken, BlogPostController.findById);
