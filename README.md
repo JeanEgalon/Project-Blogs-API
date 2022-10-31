@@ -28,28 +28,10 @@
   * Entre na pasta do repositório que você acabou de clonar:
     * `cd sd-022-a-project-blogs-api`
 
-2. Instale as dependências [**Caso existam**]
+2. Instale as dependências
   * `npm install`
 
 <br />
-</details>
-
-<details>
-  <summary><strong>👀 Dicas</strong></summary>
-
-  #### Status HTTP
-
-  Tenha em mente que todas as "respostas" devem respeitar os [status do protocolo HTTP](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status) com base no que o REST prega.
-
-  Alguns exemplos:
-  - Requisições que precisam de token mas não o receberam devem retornar um código de `status 401`;
-
-  - Requisições que não seguem o formato pedido pelo servidor devem retornar um código de `status 400`;
-
-  - Um problema inesperado no servidor deve retornar um código de `status 500`;
-
-  - Um acesso ao criar um recurso, no nosso caso usuário ou post, deve retornar um código de `status 201`.
-
 </details>
 
 <details>
