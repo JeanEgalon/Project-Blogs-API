@@ -59,7 +59,7 @@
 
   Para orientar a construção das tabelas através do ORM, utilize o *DER* a seguir:
 
-  ![DER](./public/der.png)
+  ![DER](.der.png)
 
   ---
 
