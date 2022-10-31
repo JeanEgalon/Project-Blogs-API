@@ -24,7 +24,7 @@
   <summary><strong>‼️ Antes de começar a desenvolver</strong></summary>
 
 1. Clone o repositório
-  * `git clone git@github.com:tryber/sd-022-a-project-blogs-api.git`.
+  * `git@github.com:JeanEgalon/Project-Blogs-API.git`.
   * Entre na pasta do repositório que você acabou de clonar:
     * `cd sd-022-a-project-blogs-api`
 
