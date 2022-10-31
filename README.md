@@ -853,9 +853,6 @@
     http://localhost:PORT/post/search?q=vamos
   ```
 
-- **✨ Dica:**
-  - Explore como fazer LIKE no Sequelize igual aprendemos na [seção 2 - Dia 03: Filtrando dados de forma específica - LIKE - criando pesquisas mais dinâmicas](https://app.betrybe.com/learn/course/5e938f69-6e32-43b3-9685-c936530fd326/module/94d0e996-1827-4fbc-bc24-c99fb592925b/section/fa69c314-da3c-46e0-bcdb-43297772a43e/day/0798d603-86d8-4b98-849e-06094bfa936c/lesson/3a587e1c-210a-4384-b4a6-242b708c40ce);
-
 <details>
   <summary><strong>Os seguintes pontos serão avaliados</strong></summary>
 
